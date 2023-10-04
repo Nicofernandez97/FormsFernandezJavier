@@ -1,0 +1,50 @@
+<h2>Registro de alumno/a a la base de datos</h2>
+<form [formGroup]="userForm">
+    <div class="form-group">
+        <div class="row">
+            <div class="col-sm">
+                <label for="imputNombre">Nombre completo</label>
+                <input formControlName="name" type="text" class="form-control" id="imputNombre"
+                    placeholder="Ingresar nombre completo">
+            </div>
+            <div class="col-sm">
+                <label for="Edad">Edad</label>
+                <input formControlName="age" type="number" class="form-control" id="Edad"
+                    placeholder="Ingresar Edad (numero)">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm">
+                <label for="imputEmail">Email</label>
+                <input formControlName="email" type="text" class="form-control" id="imputEmail"
+                    placeholder="Ingresar dirección Email">
+            </div>
+            <div class="col-sm">
+                <label for="imputPassword">Telefono</label>
+                <input formControlName="phone" type="number" class="form-control" id="imputPassword"
+                    placeholder="Ingresar Telefono">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm">
+                <label for="imputUsername">Nombre de usuario (plataforma)</label>
+                <input formControlName="userName" type="text" class="form-control" id="imputUsername"
+                    placeholder="Ingresar nombre de usuario">
+            </div>
+            <div class="col-sm">
+                <label for="exampleInputPassword1">Contraseña plataforma</label>
+                <input formControlName="passcode" type="password" class="form-control" id="exampleInputPassword1"
+                    placeholder="Ingresar contraseña">
+            </div>
+        </div>
+        <button [disabled]="userForm.invalid" (click)="onSubmit()" type="submit" class="btn btn-primary">Submit</button>
+    </div>
+</form>
+
+<h3>Errores:</h3>
+<p>Nombre: {{ userForm.controls["name"].errors | json }}</p>
+<p>Edad:{{ userForm.controls["age"].errors | json }}</p>
+<p>Email:{{ userForm.controls["email"].errors | json }}</p>
+<p>Telefono:{{ userForm.controls["phone"].errors | json }}</p>
+<p>Usuario:{{ userForm.controls["userName"].errors | json }}</p>
+<p>Contraseña:{{ userForm.controls["passcode"].errors | json }}</p>
